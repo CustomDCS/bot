@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.10.2",
-    "dotenv": "^16.0.3"
+    "djs-commander": "^0.0.45",
+    "dotenv": "^16.0.3",
+    "fs": "^0.0.1-security"
   }
 }

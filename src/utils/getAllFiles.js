@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = (directory, foldersOnly = false) => {
     let fileNames = [];
 
-    const files = fs.readdirSync(directory, { withFilesTypes: true});
+    const files = fs.readdirSync(directory, { withFileTypes: true});
 
     for (const file of files) {
         const filePath = path.join(directory, file.name);
