@@ -49,17 +49,43 @@ module.exports = {
           var request = new sql.Request();
           request.input('DiscordID', sql.VarChar(50), userID);
           //request.output('NameNew', sql.VarChar(30), 'Cbe');
-          request.execute('DisplayUsersRoles').then(function(err, result, returnValue) {
-            interaction.editReply(
-              `SQL Dump: 
-              returnValue: ${returnValue}
-              recordsets: ${result.recordsets}`,
+          
+          var query =
+          "SELECT Users.DiscordName, Users.CustomDiscordName, Roles.Name\
+          FROM dbo.Users\
+          INNER JOIN UsersRoles ON Users.ID = UsersRoles.UserID\
+          INNER JOIN Roles ON UsersRoles.RoleID = Roles.ID\
+          WHERE DiscordID = ";
+          //console.log(query.concat(DiscordID))
+          request.query(query.concat(userID),
+          function (err, recordset) {
+          
+          if (err) console.log(err)
+
+          var roleName = recordset['recordset'][0]['Name'];
+          var discordName = recordset['recordset'][0]['DiscordName'];
+          var customDiscordName = recordset['recordset'][0]['CustomDiscordName'];
+
+          // send records as a response
+          //res.send(recordset);
+          interaction.editReply(
+              `Hello ${discordName}, your role is ${roleName}`,
             );
-            console.dir(result);
-            console.dir(err);
-          }).catch(function(err) {
-            console.log(err);
           });
+
+          // request.execute('DisplayUsersRoles').then(function(err, result, returnValue) {
+          //   console.dir(result);
+            
+          //   interaction.editReply(
+          //     `SQL Dump: 
+          //     returnValue: ${returnValue}
+          //     recordsets: ${result.recordsets}`,
+          //   );
+          //   //console.dir(result);
+          //   console.dir(err);
+          // }).catch(function(err) {
+          //   console.log(err);
+          // });
         });
 
         // var query =
