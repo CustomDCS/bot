@@ -5,13 +5,13 @@ INSERT INTO [dbo].[Users]
 )
 VALUES
 ( -- First row: values for the columns in the list above
- 'FlamerNZ', 'Shifty 1-1', 1234567, GETDATE()
+ 'FlamerNZ', 'Shifty 1-1', 445429666912665621, GETDATE()
 ),
 ( -- Second row: values for the columns in the list above
- 'Matty', 'Smoky', 8901234, GETDATE()
+ 'Matty', 'Smoky', 465114477012975639, GETDATE()
 ),
 ( -- Third row: values for the columns in the list above
- 'Yushin', 'Zebra 6', 5678901, GETDATE()
+ 'Yushin', 'Zebra 6', 1417471992257576961, GETDATE()
 )
 -- Add more rows here
 GO

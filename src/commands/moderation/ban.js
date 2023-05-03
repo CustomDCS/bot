@@ -1,10 +1,14 @@
-const { ApplicationCommandOptionType, PermissionFlagsBits } = require("discord.js");
+const {
+    ApplicationCommandOptionType,
+    PermissionFlagsBits,
+} = require('discord.js');
 
 module.exports = {
+    deleted: true,
     name: 'ban',
     description: 'Bans a member... ',
-    // devOnly Boolean,
-    // testOnly: Boolean,
+    // devOnly true,
+    // testOnly: true,
     options: [
         {
             name: 'targer-user',
