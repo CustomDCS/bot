@@ -13,5 +13,5 @@ const client = new Client({
 });
 
 eventHandler(client);
-
+//DB(client);
 client.login(process.env.TOKEN);
