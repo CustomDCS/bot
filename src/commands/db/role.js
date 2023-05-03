@@ -7,7 +7,7 @@ app.get('/', function (req, res) {
 });
 
 module.exports = {
-  name: 'info',
+  name: 'role',
   description: 'Displays your current role',
 
   callback: async (client, interaction) => {
