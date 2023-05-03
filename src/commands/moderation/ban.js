@@ -2,7 +2,7 @@ const { ApplicationCommandOptionType, PermissionFlagsBits } = require("discord.j
 
 module.exports = {
     name: 'ban',
-    description: 'Bans a member from the server',
+    description: 'Bans a member... ',
     // devOnly Boolean,
     // testOnly: Boolean,
     options: [
