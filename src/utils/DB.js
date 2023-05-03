@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-app.get('./', function (req, res) {
+app.get('/', function (req, res) {
    
     var sql = require("mssql");
 
@@ -23,15 +23,15 @@ app.get('./', function (req, res) {
         var request = new sql.Request();
            
         var DiscordID = '465114477012975639';
-        var query = (`SELECT Users.DiscordName, Users.CustomDiscordName, Roles.Name\
-        FROM dbo.Users\
-        INNER JOIN UsersRoles ON Users.ID = UsersRoles.UserID\
-        INNER JOIN Roles ON UsersRoles.RoleID = Roles.ID\
-        WHERE DiscordID = "`)
-        console.log(query.concat(DiscordID));
-        // query to the database and get the records
-        request.query(query.concat(DiscordID),
-        function (err, recordset) {
+        var query =
+            "SELECT Users.DiscordName, Users.CustomDiscordName, Roles.Name\
+            FROM dbo.Users\
+            INNER JOIN UsersRoles ON Users.ID = UsersRoles.UserID\
+            INNER JOIN Roles ON UsersRoles.RoleID = Roles.ID\
+            WHERE DiscordID = ";
+            console.log(query.concat(DiscordID))
+            request.query(query.concat(DiscordID),
+            function (err, recordset) {
             
             if (err) console.log(err)
 

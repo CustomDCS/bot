@@ -4,11 +4,11 @@ const {
 } = require('discord.js');
 
 module.exports = {
-    deleted: true,
+    //deleted: true,
     name: 'ban',
     description: 'Bans a member... ',
-    // devOnly true,
-    // testOnly: true,
+    //devOnly true,
+    //testOnly: true,
     options: [
         {
             name: 'targer-user',
