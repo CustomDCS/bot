@@ -7,7 +7,7 @@ app.get('/', function (req, res) {
 });
 
 module.exports = {
-  name: 'info',
+  name: 'role',
   description: 'Displays your current role',
 
   callback: async (client, interaction) => {
@@ -63,13 +63,16 @@ module.exports = {
           if (err) console.log(err)
 
           var roleName = recordset['recordset'][0]['Name'];
-          var discordName = recordset['recordset'][0]['DiscordName'];
+          var name = recordset['recordset'][0]['DiscordName'];
           var customDiscordName = recordset['recordset'][0]['CustomDiscordName'];
-
+          if(customDiscordName)
+          {
+            name = customDiscordName;
+          }
           // send records as a response
           //res.send(recordset);
           interaction.editReply(
-              `Hello ${discordName}, your role is ${roleName}`,
+              `Hello ${name}, you are in the ${roleName} role.`,
             );
           });
 
